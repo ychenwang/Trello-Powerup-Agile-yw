@@ -84,7 +84,7 @@ TrelloPowerUp.initialize(
     'show-authorization': function (t, options) {
       // If we want to ask the user to authorize our Power-Up to make full use of the Trello API
       // you'll need to add your API from trello.com/app-key below:
-      let trelloAPIKey = '';
+      let trelloAPIKey = '7b00b5ef54a206641d72f9d4853ad09e';
       if (trelloAPIKey) {
         return t.popup({
           title: 'My Auth Popup',
