@@ -1,2 +1,3 @@
-# Trello-Powerup-Agile
-A powerup for trello which contains a suite of tools to make agile easier.
+# Test Power Up 🚀
+
+A test power up to eventually try to upload CSVs to Trello.
