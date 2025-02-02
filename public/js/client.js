@@ -14,7 +14,7 @@ var boardButtonCallback = function (t) {
         text: 'Import CSV',
         callback: function (t) {
           return t.modal({
-            url: './index.html',
+            url: './import-csv.html',
             accentColor: '#F2D600',
             height: 500,
             fullscreen: true,
