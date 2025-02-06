@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Configure Database</title>
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script src="dbconfiguration.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+      body {
+        font-family: Arial;
+        padding: 1em;
+      }
+      label, input, button {
+        font-size: 1.1em;
+        display: block;
+        margin-bottom: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Configure Database</h1>
+    <form id="dbForm">
+        <label for="dbAddress">Database Address (e.g.: http://localhost:3000):</label>
+        <input type="text" id="dbAddress" name="dbAddress" placeholder="Enter DB address" required>
+        <label for="dbPort">Database Port (e.g.: 22):</label>
+        <input type="text" id="Database" name="Database" placeholder="Enter DB Port" required>
+        <label for="dbLogin">Database Login:</label>
+        <input type="text" id="dbLogin" name="dbLogin" placeholder="Enter DB user" required>
+        <label for="dbPass">Database Login:</label>
+        <input type="text" id="dbPass" name="dbPass" placeholder="Enter DB password" required>
+        <button type="submit">Save Configuration</button>
+    </form>
+    <div id="message"></div>
+  </body>
+</html>
