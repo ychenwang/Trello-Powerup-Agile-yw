@@ -21,6 +21,7 @@ app.use('/manifest.json', nocache, function (request, response) {
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
+app.use('/db', express.static('db'));
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {

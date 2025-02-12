@@ -9,11 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
   t.get('board', 'private', 'dbConfig')
   .then(function(dbConfig) {
     if (dbConfig) {
-      document.getElementById('host').value = dbConfig.host || '';
-      document.getElementById('port').value = dbConfig.port || '';
-      document.getElementById('username').value = dbConfig.username || '';
-      document.getElementById('password').value = dbConfig.password || '';
-      document.getElementById('database').value = dbConfig.database || '';
+      document.getElementById('dbHost').value = dbConfig.host || '';
+      document.getElementById('dbPort').value = dbConfig.port || '';
+      document.getElementById('dbLogin').value = dbConfig.username || '';
+      document.getElementById('dbPass').value = dbConfig.password || '';
     }
   })
   .catch(function(error) {
@@ -25,20 +24,34 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault();
 
     var dbConfig = {
-      host: document.getElementById('host').value,
-      port: document.getElementById('port').value,
-      username: document.getElementById('username').value,
-      password: document.getElementById('password').value,
-      database: document.getElementById('database').value
+      host: document.getElementById('dbHost').value,
+      port: document.getElementById('dbPort').value,
+      login: document.getElementById('dbLogin').value,
+      password: document.getElementById('dbPass').value,
     };
 
     t.set('board', 'private', 'dbConfig', dbConfig)
     .then(function() {
-      messageDiv.textContent = 'Database configuration saved successfully!';
+      messageDiv.textContent = 'Configuration saved. Sending config to server...';
+
+      // Send the configuration to the server
+      return fetch('cs663-trellotest-ajepa3hgdhdkd9a5.canadacentral-01.azurewebsites.net/api/query', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dbConfig)
+      });
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      messageDiv.textContent = 'Server response: ' + JSON.stringify(data);
     })
     .catch(function(error) {
-      console.error('Error saving database config:', error);
-      messageDiv.textContent = 'Error saving configuration.';
+      console.error('Error processing configuration:', error);
+      messageDiv.textContent = 'Error processing configuration.';
     });
-  });
+});
 });

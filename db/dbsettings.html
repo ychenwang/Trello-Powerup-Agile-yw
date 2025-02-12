@@ -22,13 +22,13 @@
     <h1>Configure Database</h1>
     <form id="dbForm">
         <label for="dbAddress">Database Address (e.g.: http://localhost:3000):</label>
-        <input type="text" id="dbAddress" name="dbAddress" placeholder="Enter DB address" required>
+        <input type="text" id="dbHost" name="dbAddress" placeholder="Enter DB address" required>
         <label for="dbPort">Database Port (e.g.: 22):</label>
-        <input type="text" id="Database" name="Database" placeholder="Enter DB Port" required>
+        <input type="text" id="dbPort" name="dbPort" placeholder="Enter DB Port" required>
         <label for="dbLogin">Database Login:</label>
         <input type="text" id="dbLogin" name="dbLogin" placeholder="Enter DB user" required>
-        <label for="dbPass">Database Login:</label>
-        <input type="text" id="dbPass" name="dbPass" placeholder="Enter DB password" required>
+        <label for="dbPass">Database Password:</label>
+        <input type="password" id="dbPass" name="dbPass" placeholder="Enter DB password" required>
         <button type="submit">Save Configuration</button>
     </form>
     <div id="message"></div>
