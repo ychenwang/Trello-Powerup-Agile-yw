@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var dbConfig = {
       host: document.getElementById('dbHost').value,
       port: document.getElementById('dbPort').value,
-      login: document.getElementById('dbLogin').value,
+      username: document.getElementById('dbLogin').value,
       password: document.getElementById('dbPass').value,
     };
 
